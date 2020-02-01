@@ -16,12 +16,6 @@ spring.datasource.platform=h2
 spring.jpa.hibernate.ddl-auto=none
 ```
 
-This single line will do all the magic for you using Spring JPA
-
-```
-public interface EmployeeService extends JpaRepository<Employee, Integer>{
-}
-```
 
 
 
