@@ -15,13 +15,13 @@ public class Feature {
     private Integer Id;
 
     @Column(name = "featurename")
-    String featureName;
+    private String featureName;
 
     @Column(name = "email")
-    String email;
+    private String email;
 
     @Column(name = "enable")
-    String enable;
+    private String enable;
 
     public Integer getId() {
         return Id;

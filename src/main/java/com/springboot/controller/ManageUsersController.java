@@ -25,7 +25,7 @@ public class ManageUsersController {
      */
 
     @RequestMapping(value = "/feature", method = RequestMethod.GET)
-    Map<String, String> getFeature(@RequestParam String featureName, @RequestParam String email) {
+    public Map<String, String> getFeature(@RequestParam String featureName, @RequestParam String email) {
         HashMap<String, String> map = new HashMap<>();
         List<Feature> l = userService.findByFeatureNameAndEmail(featureName, email);
         if (l.isEmpty()) {
@@ -40,10 +40,10 @@ public class ManageUsersController {
     /**
      * @param feature lsit of feature values to save in to db
      * @return Success
-     * @author Nßavi
+     * @author Navi
      */
     @RequestMapping(value = "/feature", method = RequestMethod.POST)
-    String addFeature(@RequestBody Feature feature) {
+    public String addFeature(@RequestBody Feature feature) {
         Feature savedFeature = userService.save(feature);
         return "SUCCESS";
     }
