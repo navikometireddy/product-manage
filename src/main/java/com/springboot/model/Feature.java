@@ -8,13 +8,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "FEATURE")
 public class Feature {
-    public Integer getId() {
-        return Id;
-    }
-
-    public void setId(Integer id) {
-        Id = id;
-    }
 
     @Id
     @Column(name = "id")
@@ -29,6 +22,14 @@ public class Feature {
 
     @Column(name = "enable")
     String enable;
+
+    public Integer getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
 
     public String getFeatureName() {
         return featureName;
@@ -55,6 +56,13 @@ public class Feature {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "Feature{" +
+                "Id=" + Id +
+                ", featureName='" + featureName + '\'' +
+                ", email='" + email + '\'' +
+                ", enable='" + enable + '\'' +
+                '}';
+    }
 }

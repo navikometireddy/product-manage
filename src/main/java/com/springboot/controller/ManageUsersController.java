@@ -16,7 +16,13 @@ public class ManageUsersController {
 
     @Autowired
     private UserService userService;
-    
+
+    /**
+     * @author navi
+     * @param featureName name of the feature
+     * @param email email address
+     * @return
+     */
 
     @RequestMapping(value = "/feature", method = RequestMethod.GET)
     Map<String, String> getFeature(@RequestParam String featureName,@RequestParam String email){
@@ -27,6 +33,11 @@ public class ManageUsersController {
 
     }
 
+    /**
+     * @author Nßavi
+     * @param feature lsit of feature values to save in to db
+     * @return Success
+     */
     @RequestMapping(value = "/feature", method = RequestMethod.POST)
     String addFeature(@RequestBody Feature feature){
         Feature savedFeature = userService.save(feature);
