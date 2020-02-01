@@ -18,28 +18,32 @@ public class ManageUsersController {
     private UserService userService;
 
     /**
-     * @author navi
      * @param featureName name of the feature
-     * @param email email address
+     * @param email       email address
      * @return
+     * @author navi
      */
 
     @RequestMapping(value = "/feature", method = RequestMethod.GET)
-    Map<String, String> getFeature(@RequestParam String featureName,@RequestParam String email){
+    Map<String, String> getFeature(@RequestParam String featureName, @RequestParam String email) {
         HashMap<String, String> map = new HashMap<>();
-       List<Feature> l=userService.findByFeatureNameAndEmail(featureName,email);
-        l.stream().forEach(a-> map.put("canAccess",a.getEnable()));
-        return map;
+        List<Feature> l = userService.findByFeatureNameAndEmail(featureName, email);
+        if (l.isEmpty()) {
+            map.put("canAccess", "false");
+        } else {
+            l.stream().forEach(a -> map.put("canAccess", a.getEnable()));
+        }
 
+        return map;
     }
 
     /**
-     * @author Nßavi
      * @param feature lsit of feature values to save in to db
      * @return Success
+     * @author Nßavi
      */
     @RequestMapping(value = "/feature", method = RequestMethod.POST)
-    String addFeature(@RequestBody Feature feature){
+    String addFeature(@RequestBody Feature feature) {
         Feature savedFeature = userService.save(feature);
         return "SUCCESS";
     }
