@@ -5,6 +5,8 @@ import com.springboot.service.UserService;
 import javafx.application.Application;
 import org.hibernate.annotations.Fetch;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -43,9 +45,9 @@ public class ManageUsersController {
      * @author Navi
      */
     @RequestMapping(value = "/feature", method = RequestMethod.POST)
-    public String addFeature(@RequestBody Feature feature) {
+    public ResponseEntity<?> addFeature(@RequestBody Feature feature) {
         Feature savedFeature = userService.save(feature);
-        return "SUCCESS";
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
