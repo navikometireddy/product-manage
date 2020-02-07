@@ -30,8 +30,19 @@ public class Product {
     @Column(name = "description")
     private String description;
     @Column(nullable = false)
-    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="merchant_id")
     private List<Merchant> merchantList;
+
+
+
+    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="category_id")
+    private List<Category> categoryList;
+
+
 
     public List<Merchant> getMerchantList() {
         return merchantList;
@@ -48,11 +59,6 @@ public class Product {
     public void setCategoryList(List<Category> categoryList) {
         this.categoryList = categoryList;
     }
-
-    @Column(nullable = false)
-    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Category> categoryList;
-
     public Integer getProductID() {
         return productID;
     }
