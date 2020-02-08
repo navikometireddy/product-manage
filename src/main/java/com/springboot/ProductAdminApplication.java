@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ManageUsersAdminApplication {
+public class ProductAdminApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ManageUsersAdminApplication.class, args);
+		SpringApplication.run(ProductAdminApplication.class, args);
 	}
 }

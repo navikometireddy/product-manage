@@ -1,11 +1,12 @@
 package com.springboot.service;
 
-import com.springboot.model.Feature;
-import com.springboot.model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.springboot.model.User;
 
 import java.util.List;
 
-public interface UserService extends JpaRepository<Product, Integer>{
+public interface UserService {
 
+    User save(User user);
+    List<User> findAll();
+    void delete(long id);
 }
