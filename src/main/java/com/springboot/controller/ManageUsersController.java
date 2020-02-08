@@ -28,7 +28,7 @@ public class ManageUsersController {
     }
 
     @GetMapping("/products")
-    public List<Product> getAllEmployees() {
+    public List<Product> getAllProducts() {
         return productService.findAll();
     }
 
@@ -64,7 +64,7 @@ public class ManageUsersController {
     public Map<String, Boolean> deleteProduct(@PathVariable(value = "id") Long productId)
             throws ResourceNotFoundException {
         Product product = productService.findById(productId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
 
         productService.delete(product);
         Map<String, Boolean> response = new HashMap<>();
