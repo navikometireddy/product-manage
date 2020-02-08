@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class ManageUsersController {
+public class ManageProductsController {
 
     @Autowired
     private ProductService productService;
