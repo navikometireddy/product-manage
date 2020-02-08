@@ -34,7 +34,7 @@ the following actions are implemented
 
 use postman to send a request for token http://localhost:8080/oauth/token please see images below
 
-![postman](images/tokencreds.png)  ![postman1](tokencreds1.png) 
+![](images/tokencreds.png)  ![](images/tokencreds2.png)
  
  you will receive token like below
  
