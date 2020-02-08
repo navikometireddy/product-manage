@@ -6,7 +6,7 @@
 	<groupId>com.iamvickyav.springboot</groupId>
 	<artifactId>SpringBootRestWithH2</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>SpringBootRestWithH2</name>
 	<description>Demo project for Spring Boot</description>
