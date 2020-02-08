@@ -29,6 +29,17 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Set<Product> productSet;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "subcategory_id")
+    private SubCategory subCategory;
+
+    public SubCategory getSubCategory() {
+        return subCategory;
+    }
+
+    public void setSubCategory(SubCategory subCategory) {
+        this.subCategory = subCategory;
+    }
 
     public Integer getId() {
         return id;
