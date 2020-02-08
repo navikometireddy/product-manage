@@ -3,7 +3,6 @@ package com.springboot.controller;
 import com.springboot.exception.ResourceNotFoundException;
 import com.springboot.model.Product;
 import com.springboot.service.ProductService;
-import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,7 +21,6 @@ public class ManageUsersController {
     private ProductService productService;
 
 
-
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public ResponseEntity<?> addProduct(@RequestBody Product product) {
         productService.save(product);
@@ -34,7 +32,7 @@ public class ManageUsersController {
         return productService.findAll();
     }
 
-    @RequestMapping(value = "/product/{id}",method = RequestMethod.GET,consumes = MediaType.ALL_VALUE)
+    @RequestMapping(value = "/product/{id}", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE)
     public Product getProductById(@PathVariable(value = "id") Long productId)
             throws ResourceNotFoundException {
         Product product = productService.findById(productId)
@@ -45,7 +43,7 @@ public class ManageUsersController {
 
     @PutMapping("/product/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable(value = "id") Long productId,
-                                                   @Valid @RequestBody Product productDetails) throws ResourceNotFoundException {
+                                                 @Valid @RequestBody Product productDetails) throws ResourceNotFoundException {
         Product product = productService.findById(productId)
                 .orElseThrow(() -> new ResourceNotFoundException("Product not found for this id :: " + productId));
 

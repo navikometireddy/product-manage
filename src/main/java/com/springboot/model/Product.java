@@ -3,19 +3,11 @@ package com.springboot.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "product")
 public class Product {
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,16 +19,12 @@ public class Product {
     private String title;
     @Column(name = "image")
     private String image;
-//    @Column(name = "category_id")
-//    private Integer categoryID;
     @Column(name = "price")
     private Integer price;
     @Column(name = "mrcp")
     private String mrsp;
     @Column(name = "available")
     private String available;
-//    @Column(name = "merchant_id")
-//    private Integer merchantID;
     @Column(name = "description")
     private String description;
 
@@ -48,13 +36,6 @@ public class Product {
         this.merchant = merchant;
     }
 
-
-
-
-//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name="merchant_id")
-//    private List<Merchant> merchantList;
-
     @JsonIgnoreProperties(value = {"productSet"})
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "merchant_id", nullable = false)
@@ -65,6 +46,14 @@ public class Product {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -72,28 +61,6 @@ public class Product {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-    //    @OneToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    @JoinColumn(name="category_id")
-//    private List<Category> categoryList;
-
-
-
-//    public List<Merchant> getMerchantList() {
-//        return merchantList;
-//    }
-//
-//    public void setMerchantList(List<Merchant> merchantList) {
-//        this.merchantList = merchantList;
-//    }
-
-//    public List<Category> getCategoryList() {
-//        return categoryList;
-//    }
-//
-//    public void setCategoryList(List<Category> categoryList) {
-//        this.categoryList = categoryList;
-//    }
 
 
     public String getUrl() {
@@ -120,14 +87,6 @@ public class Product {
         this.image = image;
     }
 
-//    public Integer getCategoryID() {
-//        return categoryID;
-//    }
-//
-//    public void setCategoryID(Integer categoryID) {
-//        this.categoryID = categoryID;
-//    }
-
     public Integer getPrice() {
         return price;
     }
@@ -152,14 +111,6 @@ public class Product {
         this.available = available;
     }
 
-//    public Integer getMerchantID() {
-//        return merchantID;
-//    }
-//
-//    public void setMerchantID(Integer merchantID) {
-//        this.merchantID = merchantID;
-//    }
-
     public String getDescription() {
         return description;
     }
@@ -171,16 +122,16 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productID=" + id +
+                "id=" + id +
                 ", url='" + url + '\'' +
                 ", title='" + title + '\'' +
                 ", image='" + image + '\'' +
-              //  ", categoryID=" + categoryID +
                 ", price=" + price +
                 ", mrsp='" + mrsp + '\'' +
                 ", available='" + available + '\'' +
-               // ", merchantID=" + merchantID +
                 ", description='" + description + '\'' +
+                ", merchant=" + merchant +
+                ", category=" + category +
                 '}';
     }
 }
